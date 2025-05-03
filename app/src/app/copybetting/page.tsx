@@ -3,7 +3,7 @@ import React from "react";
 const portfolios = [
   {
     user: "PixelPro123",
-    avatar: "/img/avatar1.png",
+    avatar: "/img/icon.png",
     pnl: "+392,617.49",
     roi: "+218.54%",
     aum: "2,968,326.89",
@@ -13,7 +13,7 @@ const portfolios = [
   },
   {
     user: "BlockyBettor",
-    avatar: "/img/avatar2.png",
+    avatar: "/img/icon.png",
     pnl: "+313,099.11",
     roi: "-90.1%",
     aum: "664,052.28",
@@ -23,7 +23,7 @@ const portfolios = [
   },
   {
     user: "GTRxFERRARI",
-    avatar: "/img/avatar3.png",
+    avatar: "/img/icon.png",
     pnl: "+196,446.25",
     roi: "+1,964.46%",
     aum: "361,732.10",
