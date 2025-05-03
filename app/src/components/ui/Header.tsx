@@ -11,6 +11,7 @@ const Header = () => (
     <nav className="flex gap-6 text-lg font-minecraft">
       <a href="/" className="px-4 py-2 rounded-md hover:bg-purple-400/20 hover:text-purple-400 transition flex items-center justify-center gap-2 leading-none"> <Image src="/img/home.png" alt="home" width={24} height={24} /><span className="pt-1">Home</span></a>
       <a href="sport" className=" px-4 py-2 rounded-md hover:bg-purple-400/20 hover:text-purple-400 transition flex items-center justify-center gap-2 leading-none"> <Image src="/img/football.svg" alt="sports" width={24} height={24} /><span className="pt-1">Sports</span></a>
+      <a href="copybetting" className=" px-4 py-2 rounded-md hover:bg-purple-400/20 hover:text-purple-400 transition flex items-center justify-center gap-2 leading-none"> <Image src="/img/football.svg" alt="sports" width={24} height={24} /><span className="pt-1">Copy Betting</span></a>
       {/* <a href="#" className="hover:text-purple-400 transition">Casino</a>
       <a href="#" className="hover:text-purple-400 transition">More</a>
       <a href="#" className="hover:text-pink-400 transition">Promo</a> */}

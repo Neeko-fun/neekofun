@@ -46,11 +46,11 @@ const EventsSection = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
         {events[activeTab].map((event: Event, idx: number) => (
-          <div key={idx} className="bg-[#232136] pixel-border p-4 shadow flex flex-col gap-2">
+          <div key={idx} className="font-minecraft bg-[#232136] pixel-border p-4 shadow flex flex-col gap-2">
             <span className="font-semibold text-lg">{event.name}</span>
             <span className="text-xs text-gray-400">{event.time}</span>
             <span className="text-sm mt-2">Odds: <span className="font-mono text-purple-300">{event.odds}</span></span>
-            <button className="mt-2 pixel-border font-minecraft text-white px-4 py-2 font-semibold shadow hover:scale-105 hover:bg-purple-600 transition w-max cursor-pointer">Bet Now</button>
+            <button className="mt-2 pixel-border text-white px-4 py-2 font-semibold shadow hover:scale-105 hover:bg-purple-600 transition w-max cursor-pointer">Bet Now</button>
           </div>
         ))}
       </div>

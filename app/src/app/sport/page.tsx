@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const sports = [
@@ -64,7 +65,7 @@ export default function SportPage() {
               {match.games.map((game, idx) => (
                 <div
                   key={idx}
-                  className="pixel-border bg-[#9b87f5] text-white flex items-center justify-between px-6 py-4 shadow-lg"
+                  className="pixel-border-white bg-[#9b87f5] text-white flex items-center justify-between px-6 py-4 shadow-lg"
                 >
                   <div className="flex flex-col">
                     <span className="font-minecraft text-lg mb-1">
@@ -76,7 +77,7 @@ export default function SportPage() {
                     {game.odds.map((odd, i) => (
                       <div
                         key={i}
-                        className="bg-[#222] px-4 py-2 rounded font-minecraft text-lg pixel-border"
+                        className="bg-[#222] px-4 py-2 rounded font-minecraft text-lg pixel-border cursor-pointer"
                       >
                         {odd}
                       </div>

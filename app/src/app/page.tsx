@@ -20,7 +20,7 @@ export default function Home() {
             alt="vip"
             width={1200}
             height={1000}
-            className="w-full h-auto"
+            className="w-full h-auto pixel-border-gray"
           />
           <div className="absolute left-0 bottom-0 z-10 p-4">
             <CryptoStats />

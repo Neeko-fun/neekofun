@@ -37,10 +37,10 @@ const ConnectWalletButton: React.FC = () => {
   if (isConnected) {
     return (
       <div className="flex items-center space-x-3">
-        <div className="bg-pixel-purple-dark px-3 py-1.5 text-white text-xs border-2 border-black shadow-pixel-sm">
+        <div className="bg-pixel-purple-dark px-3 py-1.5 text-white text-sm border-2 border-black shadow-pixel-sm">
           {walletAddress}
         </div>
-        <PixelButton variant="small" onClick={disconnectWallet}>
+        <PixelButton variant="small" onClick={disconnectWallet} className="bg-red-600">
           Disconnect
         </PixelButton>
       </div>
