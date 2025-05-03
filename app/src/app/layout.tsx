@@ -27,6 +27,12 @@ const minecraft = localFont({
   display: "swap",
 });
 
+const superpixel = localFont({
+  src: "../../public/fonts/Super-Pixel.ttf",
+  variable: "--font-superpixel",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Neekofun",
   description: "Neekofun",
@@ -40,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${mulish.variable} ${minecraft.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${mulish.variable} ${minecraft.variable} ${superpixel.variable} antialiased`}
       >
         <SolanaProvider>
           <Header />

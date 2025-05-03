@@ -1,7 +1,9 @@
 'use client';
 import React, { useState } from "react";
+import Link from "next/link";
 
 interface Event {
+  id: string;
   name: string;
   time: string;
   odds: string;
@@ -9,15 +11,15 @@ interface Event {
 
 const events: Record<"Live" | "Top events", Event[]> = {
   Live: [
-    { name: "Football: Real Madrid vs Barcelona", time: "Live", odds: "1.8 | 2.1 | 3.0" },
-    { name: "Tennis: Nadal vs Federer", time: "Live", odds: "1.5 | 2.5" },
-    { name: "Tennis: Nadal vs Federer", time: "Live", odds: "1.5 | 2.5" },
-    { name: "Tennis: Nadal vs Federer", time: "Live", odds: "1.5 | 2.5" },
-    { name: "Tennis: Nadal vs Federer", time: "Live", odds: "1.5 | 2.5" },
+    { id: "1", name: "Football: Real Madrid vs Barcelona", time: "Live", odds: "1.8 | 2.1 | 3.0" },
+    { id: "2", name: "Tennis: Nadal vs Federer", time: "Live", odds: "1.5 | 2.5" },
+    { id: "3", name: "Tennis: Nadal vs Federer", time: "Live", odds: "1.5 | 2.5" },
+    { id: "4", name: "Tennis: Nadal vs Federer", time: "Live", odds: "1.5 | 2.5" },
+    { id: "5", name: "Tennis: Nadal vs Federer", time: "Live", odds: "1.5 | 2.5" },
   ],
   "Top events": [
-    { name: "Basketball: Lakers vs Celtics", time: "Tomorrow", odds: "1.9 | 2.0" },
-    { name: "MMA: McGregor vs Khabib", time: "Saturday", odds: "2.2 | 1.7" },
+    { id: "6", name: "Basketball: Lakers vs Celtics", time: "Tomorrow", odds: "1.9 | 2.0" },
+    { id: "7", name: "MMA: McGregor vs Khabib", time: "Saturday", odds: "2.2 | 1.7" },
   ],
 };
 
@@ -50,7 +52,9 @@ const EventsSection = () => {
             <span className="font-semibold text-lg">{event.name}</span>
             <span className="text-xs text-gray-400">{event.time}</span>
             <span className="text-sm mt-2">Odds: <span className="font-mono text-purple-300">{event.odds}</span></span>
-            <button className="mt-2 pixel-border text-white px-4 py-2 font-semibold shadow hover:scale-105 hover:bg-purple-600 transition w-max cursor-pointer">Bet Now</button>
+            <Link href={`/bet/${event.id}`}>
+              <button className="mt-2 pixel-border text-white px-4 py-2 font-semibold shadow hover:scale-105 hover:bg-purple-600 transition w-max cursor-pointer">Bet Now</button>
+            </Link>
           </div>
         ))}
       </div>
