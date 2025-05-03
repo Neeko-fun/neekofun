@@ -1,6 +1,3 @@
-import Header from "@/components/ui/Header";
-import Carousel from "@/components/ui/Carousel";
-import StartPlaying from "@/components/ui/StartPlaying";
 import CryptoStats from "@/components/ui/CryptoStats";
 import EventsSection from "@/components/ui/EventsSection";
 import Image from "next/image";

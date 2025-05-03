@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import ConnectWalletButton from "../ConnectWalletButton";
+import { CustomWalletButton } from "../WalletConnect";
 
 const Header = () => (
   <header className="flex items-center justify-between py-4 px-6 sticky top-0 z-10">
@@ -17,7 +17,7 @@ const Header = () => (
       <a href="#" className="hover:text-purple-400 transition">More</a>
       <a href="#" className="hover:text-pink-400 transition">Promo</a> */}
     </nav>
-    <ConnectWalletButton />
+    <CustomWalletButton />
   </header>
 );
 
