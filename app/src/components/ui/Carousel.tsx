@@ -18,7 +18,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides, interval = 4000 }) => {
 
   return (
     <div className="relative w-full flex flex-col items-center">
-      <div className="w-full flex overflow-hidden rounded-2xl">
+      <div className="w-full flex overflow-hidden pixel-border">
         {slides.map((slide, idx) => (
           <div
             key={idx}
@@ -33,7 +33,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides, interval = 4000 }) => {
         {slides.map((_, idx) => (
           <button
             key={idx}
-            className={`h-2 w-8 rounded-full transition-all duration-300 ${idx === current ? "bg-purple-400" : "bg-gray-700"}`}
+            className={`h-2 w-8  transition-all duration-300 ${idx === current ? "bg-purple-400" : "bg-gray-700"}`}
             onClick={() => setCurrent(idx)}
             aria-label={`Go to slide ${idx + 1}`}
           />

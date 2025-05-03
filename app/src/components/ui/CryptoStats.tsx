@@ -1,23 +1,19 @@
 import React from "react";
+import PixelButton from "../PixelButton";
 
 const CryptoStats = () => (
-  <div className="flex items-center justify-center gap-8 bg-[#232136] rounded-xl py-4 px-6 shadow-lg mt-4 flex-wrap">
-    <div className="flex flex-col items-center">
-      <span className="text-3xl font-bold">21</span>
-      <span className="text-xs text-gray-400">Crypto networks</span>
+  <div className="flex items-center justify-center gap-8 py-4 px-6 mt-4 flex-wrap font-minecraft">
+    <div className="flex flex-col items-center bg-[#6B50FD] border-4 border-black pixel-shadow-lg py-4 px-6">
+      <span className="text-3xl font-bold">1,562</span>
+      <span className="text-xs text-white/70">Total bets</span>
     </div>
-    <div className="flex flex-col items-center">
-      <span className="text-3xl font-bold">48</span>
-      <span className="text-xs text-gray-400">Crypto currencies</span>
+    <div className="flex flex-col items-center bg-[#6B50FD] border-4 border-black pixel-shadow-lg py-4 px-6">
+      <span className="text-3xl font-bold">591</span>
+      <span className="text-xs text-white/70">Active Users</span>
     </div>
-    <div className="flex items-center gap-4 ml-8">
-      {/* Replace with icons if available */}
-      <span className="bg-gray-700 px-3 py-1 rounded text-sm">Tether</span>
-      <span className="bg-gray-700 px-3 py-1 rounded text-sm">Bitcoin</span>
-      <span className="bg-gray-700 px-3 py-1 rounded text-sm">Ethereum</span>
-      <span className="bg-gray-700 px-3 py-1 rounded text-sm">Tron</span>
-      <span className="bg-gray-700 px-3 py-1 rounded text-sm">BNB</span>
-      <a href="#" className="text-purple-400 underline ml-2 text-sm">See all</a>
+    <div className="flex flex-col items-center bg-[#6B50FD] border-4 border-black pixel-shadow-lg py-4 px-6">
+      <span className="text-3xl font-bold">2,101</span>
+      <span className="text-xs text-white/70">Total SOL Paid Out</span>
     </div>
   </div>
 );

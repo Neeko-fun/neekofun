@@ -28,13 +28,13 @@ const EventsSection = () => {
   const [activeTab, setActiveTab] = useState<Tab>("Live");
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-4">Events</h2>
+      <h2 className="text-2xl font-bold mb-4 font-minecraft">Events</h2>
       <div className="flex gap-4 mb-4">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2 rounded-full font-semibold transition border-2 ${
+            className={`px-4 py-2 pixel-shadow shadow-white font-semibold transition border-2 font-minecraft ${
               activeTab === tab
                 ? "bg-purple-600 border-purple-400 text-white"
                 : "bg-[#232136] border-gray-700 text-gray-300 hover:bg-purple-900"
@@ -44,13 +44,13 @@ const EventsSection = () => {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
         {events[activeTab].map((event: Event, idx: number) => (
-          <div key={idx} className="bg-[#232136] rounded-xl p-4 shadow flex flex-col gap-2">
+          <div key={idx} className="bg-[#232136] pixel-border p-4 shadow flex flex-col gap-2">
             <span className="font-semibold text-lg">{event.name}</span>
             <span className="text-xs text-gray-400">{event.time}</span>
             <span className="text-sm mt-2">Odds: <span className="font-mono text-purple-300">{event.odds}</span></span>
-            <button className="mt-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full font-semibold shadow hover:scale-105 transition w-max">Bet Now</button>
+            <button className="mt-2 pixel-border font-minecraft text-white px-4 py-2 font-semibold shadow hover:scale-105 hover:bg-purple-600 transition w-max cursor-pointer">Bet Now</button>
           </div>
         ))}
       </div>
