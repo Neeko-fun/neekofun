@@ -3,8 +3,9 @@ import {
   createPostResponse,
   ActionGetResponse,
   ActionPostRequest,
-  createActionHeaders,
   ActionError,
+  ACTIONS_CORS_HEADERS,
+  BLOCKCHAIN_IDS,
 } from '@solana/actions';
 import {
   clusterApiUrl,
@@ -14,8 +15,17 @@ import {
   TransactionInstruction,
 } from '@solana/web3.js';
 
-// create the standard headers for this route (including CORS)
-const headers = createActionHeaders();
+const blockchain = BLOCKCHAIN_IDS.devnet;
+
+const headers = {
+  ...ACTIONS_CORS_HEADERS,
+  'x-blockchain-ids': blockchain,
+  'x-action-version': '2.4',
+};
+
+export const OPTIONS = async () => {
+  return new Response(null, { headers });
+};
 
 export const GET = async (req: Request) => {
   try {
@@ -51,7 +61,8 @@ export const GET = async (req: Request) => {
       },
     };
 
-    return Response.json(payload, {
+    return new Response(JSON.stringify(payload), {
+      status: 200,
       headers,
     });
   } catch (err) {
@@ -64,8 +75,6 @@ export const GET = async (req: Request) => {
     });
   }
 };
-
-export const OPTIONS = async () => Response.json(null, { headers });
 
 export const POST = async (req: Request) => {
   try {
@@ -118,7 +127,7 @@ export const POST = async (req: Request) => {
 function validatedQueryParams(requestUrl: URL) {
   const segments = requestUrl.pathname.split('/');
   const programAddress = segments[segments.indexOf('actions') + 1];
-
+  console.log(programAddress);
   if (!programAddress) throw 'Missing program address';
   if (!requestUrl.searchParams.get('decision')) throw 'Missing decision';
 
