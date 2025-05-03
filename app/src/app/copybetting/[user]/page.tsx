@@ -1,7 +1,10 @@
 "use client";
 import { useParams } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import PixelModal from "@/components/PixelModal";
+import PixelInput from "@/components/PixelInput";
+import PixelButton from "@/components/PixelButton";
 // Types
 type MarketOption = { label: string; odds: number };
 type Market = { name: string; options: MarketOption[] };
@@ -68,6 +71,11 @@ export default function UserBettingPoolPage() {
   const params = useParams();
   const user = params?.user as string;
   const pool = userPools[user] || userPools["PixelKing"]; // fallback for demo
+  const [modalOpen, setModalOpen] = useState(false);
+  const [stake, setStake] = useState("1.00");
+  const [mirror, setMirror] = useState(100);
+  const [riskCap, setRiskCap] = useState("");
+  const [agree, setAgree] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#181B23] text-white flex flex-col items-center py-8">
@@ -158,10 +166,72 @@ export default function UserBettingPoolPage() {
           ))}
         </div>
         {/* Copy Bet Button */}
-        <button className="pixel-border-white bg-green-600 hover:bg-green-700 text-white font-minecraft px-8 py-3 transition self-center ">
+        <PixelButton
+          className="pixel-border-white bg-green-600 hover:bg-green-700 text-white font-minecraft px-8 py-3 transition self-center mt-4"
+          onClick={() => setModalOpen(true)}
+        >
           Copy Bet
-        </button>
+        </PixelButton>
       </div>
+
+      <PixelModal open={modalOpen} onClose={() => setModalOpen(false)}>
+        <div className="font-minecraft text-2xl mb-2 flex flex-col items-center gap-2">
+          <span>Copy Betting Settings</span>
+          <span className=" text-green-400 bg-black/60 text-sm px-3 py-1 rounded font-bold">Profit Sharing 12.00%</span>
+        </div>
+        <div className="mb-2 flex gap-4">
+          <button className="pixel-border bg-[#23263A] text-white px-4 py-1 font-minecraft text-sm">Fixed Ratio</button>
+          {/* <button className="pixel-border bg-[#23263A] text-gray-400 px-4 py-1 font-minecraft text-sm">Fixed Amount</button> */}
+        </div>
+        <div className="mb-2 flex justify-between font-minecraft text-md">
+          <span>Lock-up period</span>
+          <span>30 Days</span>
+        </div>
+        <div className="mb-2">
+          <div className="font-minecraft text-sm text-gray-400 mb-1">Copy Amount</div>
+          <div className="flex gap-2">
+            <PixelInput value={stake} onChange={e => setStake(e.target.value)} className="w-full h-full" />
+            <span className="font-minecraft text-xs flex items-center">SOL</span>
+            <PixelButton className="px-2 py-1 text-xs">MAX</PixelButton>
+          </div>
+          <div className="text-xs text-gray-400 mt-1">Available 0.61 SOL</div>
+        </div>
+        <div className="mb-2 flex items-center gap-2">
+          <input type="checkbox" id="auto-invest" className="accent-pixel-purple" />
+          <label htmlFor="auto-invest" className="font-minecraft text-sm">Auto-Invest</label>
+        </div>
+        <div className="mb-2">
+          <div className="font-minecraft text-xs text-gray-400 mb-1">Total Stop Loss</div>
+          <PixelInput placeholder="0-95" className="w-full h-8" />
+          <span className="font-minecraft text-xs text-gray-400"> % ROI</span>
+          <div className="text-xs text-gray-400 mt-1">
+            When the estimated margin balance of copiers reaches -- SOL, it will trigger a Stop Loss Market order to close all positions. Estimated PnL will be -- USDT. <span className="text-red-400">Stop loss cannot be modified during the lockup period.</span>
+          </div>
+        </div>
+        <div className="mb-2">
+          {/* <button className="w-full flex items-center justify-between font-minecraft text-xs text-gray-400 bg-transparent">
+            Advanced Settings (Optional)
+            <span>▼</span>
+          </button> */}
+          <div className="mt-2 flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <input type="checkbox" id="profit-sharing" className="accent-pixel-purple" />
+              <label htmlFor="profit-sharing" className="font-minecraft text-xs">
+                I have confirmed Profit Sharing is <span className="text-green-400 font-bold">12.00%</span>
+              </label>
+            </div>
+            <div className="flex items-center gap-2">
+              <input type="checkbox" id="agreement" className="accent-pixel-purple" />
+              <label htmlFor="agreement" className="font-minecraft text-xs">
+                I have read and I agree to the <span className="text-green-400 underline cursor-pointer">User Service Agreement</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <PixelButton className="w-full bg-green-600 text-white hover:bg-green-700 font-minecraft mt-2 border-white shadow-white">
+          Copy
+        </PixelButton>
+      </PixelModal>
     </div>
   );
 }

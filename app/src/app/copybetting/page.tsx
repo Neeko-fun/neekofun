@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const portfolios = [
@@ -75,7 +76,9 @@ export default function CopyBetPage() {
             </div>
             <div className="flex gap-2 mt-2">
               <button className="pixel-border bg-green-600 hover:bg-green-700 text-white font-minecraft px-4 py-2 transition">Copy</button>
-              <button className="pixel-border bg-[#9b87f5] hover:bg-purple-700 text-white font-minecraft px-4 py-2 transition">View</button>
+              <Link href={`/copybetting/${p.user}`}>
+                <button className="pixel-border bg-[#9b87f5] hover:bg-purple-700 text-white font-minecraft px-4 py-2 transition">View</button>
+              </Link>
             </div>
           </div>
         ))}

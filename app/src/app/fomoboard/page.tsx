@@ -69,7 +69,7 @@ export default function FomoBoard() {
           {sortedUsers.map((user, idx) => (
             <div key={user.name} className="pixel-border bg-[#181B23] flex items-center justify-between px-6 py-4">
               <div className="flex flex-col">
-                <Link href={`/fomoboard/${user.name}`}>
+                <Link href={`/copybetting/${user.name}`}>
                   <span className="font-minecraft text-lg text-purple-300 cursor-pointer hover:underline">
                     #{idx + 1} {user.name}
                   </span>
