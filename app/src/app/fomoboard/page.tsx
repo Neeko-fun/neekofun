@@ -1,5 +1,7 @@
 "use client"
 import React, { useState } from "react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const users = [
   {
@@ -42,6 +44,8 @@ const users = [
 export default function FomoBoard() {
   const [sortBy, setSortBy] = useState("ROI");
   const sortedUsers = [...users].sort((a, b) => b.roi - a.roi);
+  const params = useParams();
+  const user = params?.user as string;
 
   return (
     <div className="min-h-screen bg-[#181B23] text-white flex items-center justify-center py-12">
@@ -65,7 +69,11 @@ export default function FomoBoard() {
           {sortedUsers.map((user, idx) => (
             <div key={user.name} className="pixel-border bg-[#181B23] flex items-center justify-between px-6 py-4">
               <div className="flex flex-col">
-                <span className="font-minecraft text-lg text-purple-300">#{idx + 1} {user.name}</span>
+                <Link href={`/copybetting/${user.name}`}>
+                  <span className="font-minecraft text-lg text-purple-300 cursor-pointer hover:underline">
+                    #{idx + 1} {user.name}
+                  </span>
+                </Link>
                 <span className="text-xs text-gray-400">ROI: <span className="text-green-400 font-minecraft">{user.roi}%</span> &nbsp; Streak: <span className="text-blue-300 font-minecraft">{user.streak}</span></span>
                 <span className="text-xs text-gray-400">{user.sol} <span className="text-purple-200 font-minecraft">SOL</span> &nbsp; {user.followers} followers</span>
               </div>

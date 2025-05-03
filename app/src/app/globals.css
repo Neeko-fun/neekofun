@@ -26,6 +26,10 @@ body {
   cursor: url("/img/cursor.png"), auto;
 }
 
+.font-superpixel {
+  font-family: var(--font-superpixel);
+}
+
 .font-minecraft {
   font-family: var(--font-minecraft);
 }

@@ -1,6 +1,7 @@
 import CryptoStats from "@/components/ui/CryptoStats";
 import EventsSection from "@/components/ui/EventsSection";
 import Image from "next/image";
+import Link from "next/link";
 
 const slides = [
   <Image src="/img/banner.png" alt="vip" width={1200} height={1000} />
