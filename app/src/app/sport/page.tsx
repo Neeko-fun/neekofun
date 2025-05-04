@@ -1,5 +1,5 @@
-
 import React from "react";
+import Link from "next/link";
 
 const sports = [
   "Football",
@@ -16,11 +16,13 @@ const matches = [
     league: "England. Premier League",
     games: [
       {
+        id: "1",
         teams: ["Aston Villa", "Fulham"],
         time: "May 3 · 19:30",
         odds: [1.80, 3.83, 4.43],
       },
       {
+        id: "2",
         teams: ["Leicester", "Southampton"],
         time: "May 3 · 22:00",
         odds: [2.46, 3.56, 2.83],
@@ -73,15 +75,20 @@ export default function SportPage() {
                     </span>
                     <span className="text-xs text-pixel-gray-light">{game.time}</span>
                   </div>
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 items-center">
                     {game.odds.map((odd, i) => (
                       <div
                         key={i}
-                        className="bg-[#222] px-4 py-2 rounded font-minecraft text-lg pixel-border cursor-pointer"
+                        className="bg-[#222] px-4 py-2 rounded font-minecraft text-lg pixel-border"
                       >
                         {odd}
                       </div>
                     ))}
+                    <Link href={`/bet/${game.id ?? idx}`}>
+                      <button className="ml-4 pixel-border bg-green-600 hover:bg-green-700 text-white font-minecraft px-4 py-2 transition">
+                        Select Bet
+                      </button>
+                    </Link>
                   </div>
                 </div>
               ))}
