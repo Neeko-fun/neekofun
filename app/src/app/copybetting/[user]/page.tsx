@@ -81,17 +81,30 @@ export default function UserBettingPoolPage() {
     <div className="min-h-screen bg-[#181B23] text-white flex flex-col items-center py-8">
       <div className="pixel-border bg-[#23263A] p-8 w-full max-w-3xl shadow-lg flex flex-col gap-5">
         <div className="relative w-full h-48 pixel-border-white">
-          <div className="bg-gradient-to-t from-black/60 to-transparent z-[2] absolute inset-0 w-full h-full" />
+          <div className="bg-gradient-to-t from-black/60 to-transparent z-[2] absolute inset-0 h-full w-full" />
           <Image
             src={pool.banner}
             alt={pool.name}
             fill
             className="object-cover z-[1]"
           />
-          <h1 className="font-superpixel text-3xl absolute bottom-0 left-0 p-4 z-10">
-            {user}
+          <div className="absolute bottom-0 left-0 p-4 z-10 flex flex-row justify-between w-full">
+            <h1 className="font-superpixel text-3xl">
+              {user}
             {/* {pool.name} */}
-          </h1>
+            </h1>
+            <div className="flex items-center gap-2">
+              <a href="https://x.com/pixel_king" target="_blank" rel="noopener noreferrer">
+                <Image src="/social-logos/x.svg" alt="SOL" width={24} height={24} />
+              </a>
+              <a href="https://www.instagram.com/pixel_king" target="_blank" rel="noopener noreferrer">
+                <Image src="/social-logos/insta.svg" alt="SOL" width={28} height={28} />
+              </a>
+              <a href="https://www.tiktok.com/@pixel_king" target="_blank" rel="noopener noreferrer">
+                <Image src="/social-logos/tiktok.svg" alt="SOL" width={28} height={28} />
+              </a>
+            </div>
+          </div>
         </div>
         {/* <h1 className="font-superpixel text-3xl ">{pool.name}</h1>
         <Image src={pool.banner} alt={pool.name} width={1000} height={100} /> */}
@@ -188,7 +201,6 @@ export default function UserBettingPoolPage() {
           <span>30 Days</span>
         </div>
         <div className="mb-2">
-          <div className="font-minecraft text-sm text-gray-400 mb-1">Copy Amount</div>
           <div className="flex gap-2">
             <PixelInput value={stake} onChange={e => setStake(e.target.value)} className="w-full h-full" />
             <span className="font-minecraft text-xs flex items-center">SOL</span>
@@ -196,7 +208,7 @@ export default function UserBettingPoolPage() {
           </div>
           <div className="text-xs text-gray-400 mt-1">Available 0.61 SOL</div>
         </div>
-        <div className="mb-2 flex items-center gap-2">
+        {/* <div className="mb-2 flex items-center gap-2">
           <input type="checkbox" id="auto-invest" className="accent-pixel-purple" />
           <label htmlFor="auto-invest" className="font-minecraft text-sm">Auto-Invest</label>
         </div>
@@ -209,10 +221,10 @@ export default function UserBettingPoolPage() {
           </div>
         </div>
         <div className="mb-2">
-          {/* <button className="w-full flex items-center justify-between font-minecraft text-xs text-gray-400 bg-transparent">
+          <button className="w-full flex items-center justify-between font-minecraft text-xs text-gray-400 bg-transparent">
             Advanced Settings (Optional)
             <span>▼</span>
-          </button> */}
+          </button>
           <div className="mt-2 flex flex-col gap-2">
             <div className="flex items-center gap-2">
               <input type="checkbox" id="profit-sharing" className="accent-pixel-purple" />
@@ -227,7 +239,7 @@ export default function UserBettingPoolPage() {
               </label>
             </div>
           </div>
-        </div>
+        </div> */}
         <PixelButton className="w-full bg-green-600 text-white hover:bg-green-700 font-minecraft mt-2 border-white shadow-white">
           Copy
         </PixelButton>

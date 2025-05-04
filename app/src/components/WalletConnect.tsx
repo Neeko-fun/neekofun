@@ -76,7 +76,7 @@ export const CustomWalletButton = () => {
         <PixelButton 
           onClick={handleConnect} 
           isLoading={isLoading} 
-          className="animate-pixel-pulse bg-purple-400"
+          className="animate-pixel-pulse bg-purple-400 pixel-border"
         >
           Connect Wallet
         </PixelButton>
@@ -85,7 +85,7 @@ export const CustomWalletButton = () => {
           <PixelButton 
             onClick={() => setShowDropdown(!showDropdown)} 
             isLoading={isLoading} 
-            className="bg-purple-400"
+            className="bg-purple-400 pixel-border"
           >
             {`${publicKey?.toString().slice(0, 4)}...${publicKey?.toString().slice(-4)}`}
           </PixelButton>
