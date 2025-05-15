@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useMonacoProgram } from '@/hooks/useMonacoProgram';
+import ConnectWalletButton from '@/components/WalletButton';
 
 export default function Home() {
   const program = useMonacoProgram();
@@ -18,6 +19,7 @@ export default function Home() {
 
   return (
     <div>
+      <ConnectWalletButton />
       <h1>Active Markets</h1>
       {markets.map((market, idx) => (
         <div key={idx}>

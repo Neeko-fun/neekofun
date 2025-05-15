@@ -13,9 +13,7 @@ import {
   PhantomWalletAdapter
 } from '@solana/wallet-adapter-wallets';
 
-import { clusterApiUrl } from '@solana/web3.js';
-
-const endpoint = clusterApiUrl('devnet');
+const endpoint = 'https://devnet.helius-rpc.com/?api-key=<API_KEY>';
 const wallets = [new PhantomWalletAdapter()];
 
 interface Props {
