@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/ui/Header";
 import { SolanaProvider } from "@/components/WalletConnect";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +52,18 @@ export default function RootLayout({
         <SolanaProvider>
           <Header />
           {children}
+          <Toaster 
+            position="top-right" 
+            toastOptions={{
+              style: {
+                background: '#181B23',
+                color: '#fff',
+                border: '1px solid #2D3748',
+                fontFamily: 'var(--font-minecraft)'
+              },
+              className: 'font-minecraft'
+            }}
+          />
         </SolanaProvider>
       </body>
     </html>

@@ -94,6 +94,12 @@ export const CustomWalletButton = () => {
           {showDropdown && (
             <div className="absolute right-0 mt-2 w-48 z-20 font-minecraft ">
               <div className="bg-gray-800 border-2 border-black pixel-shadow-lg divide-y divide-gray-700">
+              <div 
+                  className="px-4 py-3 text-sm text-white cursor-pointer hover:bg-purple-900"
+                  onClick={copyAddress}
+                >
+                  Copy Address
+                </div>
                 <div 
                   className="px-4 py-3 text-sm text-white cursor-pointer hover:bg-purple-900"
                   onClick={() => router.push("/profile")}
@@ -102,9 +108,9 @@ export const CustomWalletButton = () => {
                 </div>
                 <div 
                   className="px-4 py-3 text-sm text-white cursor-pointer hover:bg-purple-900"
-                  onClick={copyAddress}
+                  onClick={() => router.push("/referral")}
                 >
-                  Copy Address
+                  Referral
                 </div>
                 <div 
                   className="px-4 py-3 text-sm text-white cursor-pointer hover:bg-purple-900"
