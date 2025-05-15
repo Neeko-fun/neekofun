@@ -11,7 +11,7 @@ const PixelInput = React.forwardRef<HTMLInputElement, PixelInputProps>(
   ({ className, label, error, ...props }, ref) => {
     return (
       <div className="space-y-2">
-        {label && <label className="block text-white font-pixel text-xs ">{label}</label>}
+        {label && <label className="block text-white font-pixel text-sm ">{label}</label>}
         <input
           className={cn(
             "pixel-input w-full pixel-shadow pl-3 pixel-border-gray",

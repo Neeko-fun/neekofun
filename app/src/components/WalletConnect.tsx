@@ -17,6 +17,7 @@ import { ReactNode, useMemo, useState, useRef, useEffect } from "react";
 import "@solana/wallet-adapter-react-ui/styles.css";
 import { CONNECTION } from "@/lib/constants";
 import PixelButton from "./PixelButton";
+import { useRouter } from "next/navigation";
 
 // Keep the dynamic import for compatibility
 export const WalletMultiButtonDynamic = dynamic(
@@ -34,7 +35,7 @@ export const CustomWalletButton = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
+  const router = useRouter();
   // Handle clicking outside to close dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -95,7 +96,7 @@ export const CustomWalletButton = () => {
               <div className="bg-gray-800 border-2 border-black pixel-shadow-lg divide-y divide-gray-700">
                 <div 
                   className="px-4 py-3 text-sm text-white cursor-pointer hover:bg-purple-900"
-                  onClick={copyAddress}
+                  onClick={() => router.push("/profile")}
                 >
                   Profile
                 </div>
