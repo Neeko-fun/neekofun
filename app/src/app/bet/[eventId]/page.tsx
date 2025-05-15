@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import PixelModal from "@/components/PixelModal";
 import PixelButton from "@/components/PixelButton";
 import PixelInput from "@/components/PixelInput";
+import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 
 // Mock event data for demo
 const events = [
@@ -43,6 +44,9 @@ export default function BetDetailsPage() {
   const [selectedBet, setSelectedBet] = useState<string | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
   const [solAmount, setSolAmount] = useState("");
+  const [isConnected, setIsConnected] = useState(false);
+  const [connectOpen, setConnectOpen] = useState(false);
+  const { setVisible } = useWalletModal();
 
   function handleShare() {
     const text = encodeURIComponent(
@@ -50,6 +54,7 @@ export default function BetDetailsPage() {
     );
     window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank");
   }
+  
 
   return (
     <div className="min-h-screen bg-[#181B23] text-white flex flex-col items-center py-8">
@@ -95,7 +100,13 @@ export default function BetDetailsPage() {
         </div>
         <ConfettiButton
           disabled={!selectedBet || !solAmount}
-          onClick={() => setShareOpen(true)}
+          onClick={() => {
+            if (isConnected) {
+              setShareOpen(true);
+            } else {
+              setConnectOpen(true);
+            }
+          }}
         >
           Place Bet
         </ConfettiButton>
@@ -127,6 +138,21 @@ export default function BetDetailsPage() {
           onClick={() => setShareOpen(false)}
         >
           Close
+        </PixelButton>
+      </PixelModal>
+      <PixelModal open={connectOpen} onClose={() => setConnectOpen(false)}>
+        <div className="font-minecraft text-2xl mb-4 text-center">Connect Your Wallet</div>
+        <div className="mb-4 text-center font-minecraft text-sm">
+          Please connect your wallet to place a bet.
+        </div>
+        <PixelButton
+          className="w-full bg-green-600 text-white font-minecraft"
+          onClick={() => {
+            setVisible(true);
+            setConnectOpen(false);
+          }}
+        >
+          Connect Wallet
         </PixelButton>
       </PixelModal>
     </div>

@@ -97,6 +97,12 @@ export const CustomWalletButton = () => {
                   className="px-4 py-3 text-sm text-white cursor-pointer hover:bg-purple-900"
                   onClick={copyAddress}
                 >
+                  Profile
+                </div>
+                <div 
+                  className="px-4 py-3 text-sm text-white cursor-pointer hover:bg-purple-900"
+                  onClick={copyAddress}
+                >
                   Copy Address
                 </div>
                 <div 
