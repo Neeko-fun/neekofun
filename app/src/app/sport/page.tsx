@@ -19,7 +19,7 @@ const matches = [
         id: "1",
         teams: ["Aston Villa", "Fulham"],
         time: "May 3 · 19:30",
-        odds: [1.80, 3.83, 4.43],
+        odds: [1.8, 3.83, 4.43],
       },
       {
         id: "2",
@@ -33,9 +33,10 @@ const matches = [
     league: "Championship of Japan. J-League 1",
     games: [
       {
+        id: "3",
         teams: ["Sanfrece Hiroshima", "Avispa Fukuoka"],
         time: "Half 2 · 64' LIVE",
-        odds: [2.50, 2.00, 5.92],
+        odds: [2.5, 2.0, 5.92],
       },
     ],
   },
@@ -71,9 +72,13 @@ export default function SportPage() {
                 >
                   <div className="flex flex-col">
                     <span className="font-minecraft text-lg mb-1">
-                      {game.teams[0]} <span className="text-pixel-gray-medium">vs</span> {game.teams[1]}
+                      {game.teams[0]}{" "}
+                      <span className="text-pixel-gray-medium">vs</span>{" "}
+                      {game.teams[1]}
                     </span>
-                    <span className="text-xs text-pixel-gray-light">{game.time}</span>
+                    <span className="text-xs text-pixel-gray-light">
+                      {game.time}
+                    </span>
                   </div>
                   <div className="flex gap-4 items-center">
                     {game.odds.map((odd, i) => (

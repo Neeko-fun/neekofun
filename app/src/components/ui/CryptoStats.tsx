@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import PixelButton from "../PixelButton";
 
@@ -18,4 +19,4 @@ const CryptoStats = () => (
   </div>
 );
 
-export default CryptoStats; 
+export default CryptoStats;
